@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Despesa index{% endblock %}
+
+{% block body %}
+    
+
+    <header>
+        
+        <div class="container-fluid logo">
+          <div>
+            <img class="" src="{{ asset('images/diamante.png') }}" alt="" width="35" height="35" class="d-inline-block ">
+          </div>
+            
+          </a>
+        </div>
+</header>
+
+<Main>
+    <div class="main-pri">
+        <div class="left-nav">
+            <a style="margin-top: 20px;" href="{{ path('app_ganho') }}">
+                <img class="fotos" src="{{ asset('images/receita.png') }}" width="35" height="35" alt="">
+            </a>
+
+            <a href="{{ path('app_despesa') }}">
+                <img class="fotos" src="{{ asset('images/dinheiro.png') }}" width="35" height="35" alt="">
+            </a>
+
+            <a href="{{ path('app_cliente') }}">
+                <img class="fotos" src="{{ asset('images/contatos.png') }}" width="35" height="35" alt="">
+
+            </a>
+
+            <a href="{{ path('app_fornecedor') }}">
+                <img class="fotos" src="{{ asset('images/caminhao.png') }}" width="35" height="35" alt="">
+
+            </a>
+
+            <a href="{{ path('app_categoria') }}">
+                <img class="fotos" src="{{ asset('images/opcoes.png') }}" width="35" height="35" alt="">
+
+            </a>
+
+        </div>
+
+            {% for despesa in despesas %}
+           
+        {% endfor %}
+
+    <table class="table center-column">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th>Emissao</th>
+                <th>Vencimento</th>
+                <th>Pago</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for despesa in despesas %}
+            <tr>
+                <td>{{ despesa.id }}</td>
+                <td>{{ despesa.nome }}</td>
+                <td>R$ {{ despesa.valor }}</td>
+                <td>{{ despesa.emissao ? despesa.emissao|date('Y-m-d') : '' }}</td>
+                <td>{{ despesa.vencimento ? despesa.vencimento|date('Y-m-d') : '' }}</td>
+                <td>{{ despesa.pago ? 'Yes' : 'No' }}</td>
+
+                <td>
+                    <a href="{{ path('app_despesa_show', {'id': despesa.id}) }}">show</a>
+                    <a href="{{ path('app_despesa_edit', {'id': despesa.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_despesa_new') }}">Create new</a>
+{% endblock %}

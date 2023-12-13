@@ -1,0 +1,96 @@
+header {
+    display: flex;
+    
+    height: 50px;
+    background-color: white;
+}
+.logo{
+    display: flex;
+    float: left;
+    justify-content: center;
+}
+
+.main-pri{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.left-nav{
+    width: 3vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    
+    flex-direction: column;
+    background-color: black;
+}
+
+.center-column{
+    width: 97vw;
+    height: 100vh;
+    background-color: #f4f4f4;
+   
+
+}
+
+.menu-um{
+    display: flex;
+    
+    
+}
+
+.fotos {
+    display: flex;
+    background-color: white;
+    padding-top: 2px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+*/
+
+.menu-um{
+    display: flex;
+
+}
+.projetos{
+    width: 70%;
+    margin: 20px;
+    padding: 10px;
+    background-color:#f4f4f4 ;
+}
+
+.eventos{
+    width: 30%;
+    margin: 20px;
+    background-color:#f4f4f4;
+}
+
+.menu-dois{
+    display: flex;
+}
+
+.clientes-recentes {
+    width: 70%;
+    margin: 20px;
+    padding: 10px;
+    background-color:#f4f4f4 ;
+
+}
+
+.aniv{
+    width: 30%;
+    margin: 20px;
+    background-color: #f4f4f4;
+
+}
+
+.central{
+    display: flex;
+    
+}
+

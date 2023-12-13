@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ganho{% endblock %}
+
+{% block body %}
+    <h1>Ganho</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ganho.id }}</td>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <td>{{ ganho.nome }}</td>
+            </tr>
+            <tr>
+                <th>Valor</th>
+                <td>{{ ganho.valor }}</td>
+            </tr>
+            <tr>
+                <th>Emissao</th>
+                <td>{{ ganho.emissao ? ganho.emissao|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Vencimento</th>
+                <td>{{ ganho.vencimento ? ganho.vencimento|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Recebido</th>
+                <td>{{ ganho.recebido ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ganho_index') }}">back to list</a>
+
+    <a href="{{ path('app_ganho_edit', {'id': ganho.id}) }}">edit</a>
+
+    {{ include('ganho/_delete_form.html.twig') }}
+{% endblock %}

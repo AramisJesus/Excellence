@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ganho index{% endblock %}
+
+{% block body %}
+   
+    <header>
+        
+        <div class="container-fluid logo">
+          <div>
+            <img class="" src="{{ asset('images/diamante.png') }}" alt="" width="35" height="35" class="d-inline-block ">
+          </div>
+            
+          </a>
+        </div>
+</header>
+
+<Main>
+    <div class="main-pri">
+        <div class="left-nav">
+            <a style="margin-top: 20px;" href="{{ path('app_ganho') }}">
+                <img class="fotos" src="{{ asset('images/receita.png') }}" width="35" height="35" alt="">
+            </a>
+
+            <a href="{{ path('app_despesa') }}">
+                <img class="fotos" src="{{ asset('images/dinheiro.png') }}" width="35" height="35" alt="">
+            </a>
+
+            <a href="{{ path('app_cliente') }}">
+                <img class="fotos" src="{{ asset('images/contatos.png') }}" width="35" height="35" alt="">
+
+            </a>
+
+            <a href="{{ path('app_fornecedor') }}">
+                <img class="fotos" src="{{ asset('images/caminhao.png') }}" width="35" height="35" alt="">
+
+            </a>
+
+            <a href="{{ path('app_categoria') }}">
+                <img class="fotos" src="{{ asset('images/opcoes.png') }}" width="35" height="35" alt="">
+
+            </a>
+
+        </div>
+
+    <table  class="table center-column ">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th>Emissao</th>
+                <th>Vencimento</th>
+                <th>Recebido</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ganho in ganhos %}
+            <tr>
+                <td>{{ ganho.id }}</td>
+                <td>{{ ganho.nome }}</td>
+                <td>{{ ganho.valor }}</td>
+                <td>{{ ganho.emissao ? ganho.emissao|date('Y-m-d') : '' }}</td>
+                <td>{{ ganho.vencimento ? ganho.vencimento|date('Y-m-d') : '' }}</td>
+                <td>{{ ganho.recebido ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_ganho_show', {'id': ganho.id}) }}">show</a>
+                    <a href="{{ path('app_ganho_edit', {'id': ganho.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ganho_new') }}">Create new</a>
+{% endblock %}
